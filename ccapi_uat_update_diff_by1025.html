@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>diff</title>
+<meta name="Generator" content="Vim/9.0">
+<meta name="plugin-version" content="vim9.0_v2">
+<meta name="settings" content="number_lines,whole_filler,use_css,no_foldcolumn,expand_tabs,line_ids,prevent_copy=,use_input_for_pc=none">
+<meta name="colorscheme" content="desert">
+<style>
+<!--
+pre { font-family: monospace; color: #ffffff; background-color: #303030; }
+body { font-family: monospace; color: #ffffff; background-color: #303030; }
+* { font-size: 1em; }
+.Folded { color: #ffff00; background-color: #4e4e4e; padding-bottom: 1px; }
+.Statement { color: #d7d787; font-weight: bold; }
+.LineNr { color: #ffff00; }
+.Special { color: #ffd787; }
+.Constant { color: #ffafaf; }
+.DiffText { color: #000000; background-color: #c6c6c6; padding-bottom: 1px; }
+.DiffAdd { color: #ffffff; background-color: #5f875f; padding-bottom: 1px; }
+.DiffChange { color: #ffffff; background-color: #5f87af; padding-bottom: 1px; }
+.DiffDelete { color: #ffffff; background-color: #af5faf; padding-bottom: 1px; }
+-->
+<!--
+table { table-layout: fixed; }
+html, body, table, tbody { width: 100%; margin: 0; padding: 0; }
+table, td, th { border: 1px solid; }
+td { vertical-align: top; }
+th, td { width: 50.0%; }
+td div { overflow: auto; }
+-->
+</style>
+<script>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  if (lineNum.indexOf('W') == -1) {
+    lineNum = 'W1'+lineNum;
+  }
+  var lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<table id='vimCodeElement'>
+<tr>
+<th>specs/ccapi_uat_20241025.json</th>
+<th>specs/cc_api_uat_20241025_update.json</th>
+</tr><tr>
+<td><div>
+<pre>
+<span id="W1L1" class="Folded">    1 </span><span class="Folded">+--12229 lines: {---------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L12230" class="LineNr">12230 </span>                      &quot;<span class="Statement">bgp_peering_as_number</span>&quot;: <span class="Special">{</span>
+<span id="W1L12231" class="LineNr">12231 </span>                        &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/BgpPeeringAsNumber</span>&quot;
+<span id="W1L12232" class="LineNr">12232 </span>                      <span class="Special">}</span>
+<span id="W1L12233" class="LineNr">12233 </span>                    }
+<span id="W1L12234" class="LineNr">12234 </span>                  },
+<span id="W1L12235" class="LineNr">12235 </span>                  &quot;<span class="Statement">termination_site</span>&quot;: <span class="Special">{</span>
+<span id="W1L12236" class="LineNr">12236 </span><span class="DiffChange">                    </span><span class="DiffChange">&quot;</span><span class="Statement DiffText">$ref</span><span class="DiffText">&quot;</span><span class="DiffText">:</span><span class="DiffText"> </span><span class="DiffText">&quot;</span><span class="Constant DiffText">#/components/schemas/BasicTerminationSite</span><span class="DiffText">&quot;</span><span class="DiffText">,</span><span class="DiffChange">                                                                                                        </span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L12237" class="LineNr">12237 </span>                    &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">To create a new Termination Site, specify these fields</span>&quot;
+<span id="W1L12238" class="LineNr">12238 </span>                  <span class="Special">}</span>,
+<span id="W1L12239" class="LineNr">12239 </span>                  &quot;<span class="Statement">termination_site_id</span>&quot;: <span class="Special">{</span>
+<span id="W1L12240" class="LineNr">12240 </span>                    &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">integer</span>&quot;,
+<span id="W1L12241" class="LineNr">12241 </span>                    &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">To use an existing Termination Site, specify its ID</span>&quot;,
+<span id="W1L12242" class="LineNr">12242 </span>                    &quot;<span class="Statement">example</span>&quot;: <span class="Constant">45</span>
+<span id="W1L12243" class="Folded">12243 </span><span class="Folded">+--8808 lines: }----------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L21051" class="LineNr">21051 </span>                    &quot;<span class="Statement">updated_at</span>&quot;: &quot;<span class="Constant">2024-07-15T12:38:48.933Z</span>&quot;
+<span id="W1L21052" class="LineNr">21052 </span>                  }
+<span id="W1L21053" class="LineNr">21053 </span>                ],
+<span id="W1L21054" class="LineNr">21054 </span>                &quot;<span class="Statement">schema</span>&quot;: <span class="Special">{</span>
+<span id="W1L21055" class="LineNr">21055 </span>                  &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">array</span>&quot;,
+<span id="W1L21056" class="LineNr">21056 </span>                  &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W1L21057" class="LineNr">21057 </span><span class="DiffAdd">                    </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">type</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">object</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">,</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W1L21058" class="LineNr">21058 </span>                    &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/get</span>&quot;
+<span id="W1L21059" class="LineNr">21059 </span>                  <span class="Special">}</span>
+<span id="W1L21060" class="LineNr">21060 </span>                <span class="Special">}</span>
+<span id="W1L21061" class="LineNr">21061 </span>              }
+<span id="W1L21062" class="LineNr">21062 </span>            },
+<span id="W1L21063" class="LineNr">21063 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">OK</span>&quot;,
+<span id="W1L21064" class="Folded">21064 </span><span class="Folded">+--8403 lines: &quot;headers&quot;: {}----------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L29467" class="LineNr">29467 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/BasicOrder</span>&quot;
+<span id="W1L29468" class="LineNr">29468 </span>          },
+<span id="W1L29469" class="LineNr">29469 </span>          <span class="Special">{</span>
+<span id="W1L29470" class="LineNr">29470 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">object</span>&quot;,
+<span id="W1L29471" class="LineNr">29471 </span>            &quot;<span class="Statement">properties</span>&quot;: <span class="Special">{</span>
+<span id="W1L29472" class="LineNr">29472 </span>              &quot;<span class="Statement">status</span>&quot;: <span class="Special">{</span>
+<span id="W1L29473" class="LineNr">29473 </span><span class="DiffChange">                </span><span class="DiffChange">&quot;</span><span class="Statement DiffChange">$ref</span><span class="DiffChange">&quot;</span><span class="DiffChange">:</span><span class="DiffChange"> </span><span class="DiffChange">&quot;</span><span class="Constant DiffChange">#/components/schemas/Status</span><span class="DiffChange">&quot;</span><span class="DiffText">,</span><span class="DiffChange">                                                                                                                          </span>
+<span id="W1L29474" class="LineNr">29474 </span><span class="DiffAdd">                </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">example</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">readyforprovision</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">                                                                                                                                  </span>
+<span id="W1L29475" class="LineNr">29475 </span>              <span class="Special">}</span>,
+<span id="W1L29476" class="LineNr">29476 </span>              &quot;<span class="Statement">time_created</span>&quot;: <span class="Special">{</span>
+<span id="W1L29477" class="LineNr">29477 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;,
+<span id="W1L29478" class="LineNr">29478 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Exact date and time the order was created.</span>&quot;,
+<span id="W1L29479" class="LineNr">29479 </span>                &quot;<span class="Statement">example</span>&quot;: &quot;<span class="Constant">2020-11-18T14:34:53.246Z</span>&quot;
+<span id="W1L29480" class="LineNr">29480 </span>              <span class="Special">}</span>,
+<span id="W1L29481" class="Folded">29481 </span><span class="Folded">+--3222 lines: &quot;time_readyforprovision&quot;: {--------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L32703" class="LineNr">32703 </span>          &quot;<span class="Statement">@schemaLocation</span>&quot;: <span class="Special">{</span>
+<span id="W1L32704" class="LineNr">32704 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">A URI to a JSON-Schema file that defines additional attributes and relationships. May be used to define additional GeographicAddress types. Usage of this attribute must be agreed upon between Buyer and Seller.</span>&quot;,
+<span id="W1L32705" class="LineNr">32705 </span>            &quot;<span class="Statement">format</span>&quot;: &quot;<span class="Constant">uri</span>&quot;,
+<span id="W1L32706" class="LineNr">32706 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W1L32707" class="LineNr">32707 </span>          <span class="Special">}</span>,
+<span id="W1L32708" class="LineNr">32708 </span>          &quot;<span class="Statement">associatedGeographicAddress</span>&quot;: <span class="Special">{</span>
+<span id="W1L32709" class="LineNr">32709 </span><span class="DiffChange">            </span><span class="DiffChange">&quot;</span><span class="Statement DiffChange">$ref</span><span class="DiffChange">&quot;</span><span class="DiffChange">:</span><span class="DiffChange"> </span><span class="DiffChange">&quot;</span><span class="Constant DiffChange">#/components/schemas/FieldedAddress</span><span class="DiffChange">&quot;</span><span class="DiffText">,</span><span class="DiffChange">                                                                                                                      </span>
+<span id="W1L32710" class="LineNr">32710 </span><span class="DiffAdd">            </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">readOnly</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="Constant DiffAdd">true</span><span class="DiffAdd">,</span><span class="DiffAdd">                                                                                                                                                   </span>
+<span id="W1L32711" class="LineNr">32711 </span><span class="DiffAdd">            </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">description</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">A Fielded Address that is associated with the Geographic Point or the Geographic Address Label.</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">                                                    </span>
+<span id="W1L32712" class="LineNr">32712 </span>          <span class="Special">}</span>
+<span id="W1L32713" class="LineNr">32713 </span>        },
+<span id="W1L32714" class="LineNr">32714 </span>        &quot;<span class="Statement">required</span>&quot;: <span class="Special">[</span>
+<span id="W1L32715" class="LineNr">32715 </span>          &quot;<span class="Constant">@type</span>&quot;
+<span id="W1L32716" class="LineNr">32716 </span>        <span class="Special">]</span>,
+<span id="W1L32717" class="LineNr">32717 </span>        &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">object</span>&quot;
+<span id="W1L32718" class="Folded">32718 </span><span class="Folded">+--102 lines: },----------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L32820" class="LineNr">32820 </span>              },
+<span id="W1L32821" class="LineNr">32821 </span>              &quot;<span class="Statement">streetNrLastSuffix</span>&quot;: <span class="Special">{</span>
+<span id="W1L32822" class="LineNr">32822 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Last street number suffix for a ranged address</span>&quot;,
+<span id="W1L32823" class="LineNr">32823 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W1L32824" class="LineNr">32824 </span>              <span class="Special">}</span>,
+<span id="W1L32825" class="LineNr">32825 </span>              &quot;<span class="Statement">geographicSubAddress</span>&quot;: <span class="Special">{</span>
+<span id="W1L32826" class="LineNr">32826 </span><span class="DiffChange">                </span><span class="DiffChange">&quot;</span><span class="Statement DiffChange">$ref</span><span class="DiffChange">&quot;</span><span class="DiffChange">:</span><span class="DiffChange"> </span><span class="DiffChange">&quot;</span><span class="Constant DiffChange">#/components/schemas/GeographicSubAddress</span><span class="DiffChange">&quot;</span><span class="DiffText">,</span><span class="DiffChange">                                                                                                            </span>
+<span id="W1L32827" class="LineNr">32827 </span><span class="DiffAdd">                </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">description</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">Additional fields used to specify an address, as detailed as possible.</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">                                                                         </span>
+<span id="W1L32828" class="LineNr">32828 </span>              <span class="Special">}</span>,
+<span id="W1L32829" class="LineNr">32829 </span>              &quot;<span class="Statement">streetSuffix</span>&quot;: <span class="Special">{</span>
+<span id="W1L32830" class="LineNr">32830 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">A modifier denoting a relative direction</span>&quot;,
+<span id="W1L32831" class="LineNr">32831 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W1L32832" class="LineNr">32832 </span>              <span class="Special">}</span>
+<span id="W1L32833" class="LineNr">32833 </span>            },
+<span id="W1L32834" class="Folded">32834 </span><span class="Folded">+--121 lines: &quot;required&quot;: [-----------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L32955" class="LineNr">32955 </span>        &quot;<span class="Statement">properties</span>&quot;: <span class="Special">{</span>
+<span id="W1L32956" class="LineNr">32956 </span>          &quot;<span class="Statement">provideAlternative</span>&quot;: <span class="Special">{</span>
+<span id="W1L32957" class="LineNr">32957 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Indicator provided by the requester to specify if alternate addresses must be provided in case of partial or fail result. MEF: The attribute is kept for TMF API compliance. MEF requires this attribute always to be set to 'true'. Alternatives should be provided regardless of whether best match was found. The Seller is allowed not to implement the support for 'false'</span><span class="Special">\n</span>&quot;,
+<span id="W1L32958" class="LineNr">32958 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">boolean</span>&quot;
+<span id="W1L32959" class="LineNr">32959 </span>          <span class="Special">}</span>,
+<span id="W1L32960" class="LineNr">32960 </span>          &quot;<span class="Statement">submittedGeographicAddress</span>&quot;: <span class="Special">{</span>
+<span id="W1L32961" class="LineNr">32961 </span><span class="DiffChange">            </span><span class="DiffChange">&quot;</span><span class="Statement DiffChange">$ref</span><span class="DiffChange">&quot;</span><span class="DiffChange">:</span><span class="DiffChange"> </span><span class="DiffChange">&quot;</span><span class="Constant DiffChange">#/components/schemas/GeographicAddress</span><span class="DiffChange">&quot;</span><span class="DiffText">,</span><span class="DiffChange">                                                                                                                   </span>
+<span id="W1L32962" class="LineNr">32962 </span><span class="DiffAdd">            </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">description</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">The address as submitted to validation. MEF: Structure used by the buyer to request geographic address validation</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">                                  </span>
+<span id="W1L32963" class="LineNr">32963 </span>          <span class="Special">}</span>
+<span id="W1L32964" class="LineNr">32964 </span>        <span class="Special">}</span>,
+<span id="W1L32965" class="LineNr">32965 </span>        &quot;<span class="Statement">required</span>&quot;: <span class="Special">[</span>
+<span id="W1L32966" class="LineNr">32966 </span>          &quot;<span class="Constant">provideAlternative</span>&quot;,
+<span id="W1L32967" class="LineNr">32967 </span>          &quot;<span class="Constant">submittedGeographicAddress</span>&quot;
+<span id="W1L32968" class="LineNr">32968 </span>        <span class="Special">]</span>,
+<span id="W1L32969" class="Folded">32969 </span><span class="Folded">+--  9 lines: &quot;type&quot;: &quot;object&quot;--------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L32978" class="LineNr">32978 </span>        &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W1L32979" class="LineNr">32979 </span>      },
+<span id="W1L32980" class="LineNr">32980 </span>      &quot;<span class="Statement">GeographicAddressValidation</span>&quot;: <span class="Special">{</span>
+<span id="W1L32981" class="LineNr">32981 </span>        &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">This resource is used to manage address validation response.</span>&quot;,
+<span id="W1L32982" class="LineNr">32982 </span>        &quot;<span class="Statement">properties</span>&quot;: <span class="Special">{</span>
+<span id="W1L32983" class="LineNr">32983 </span>          &quot;<span class="Statement">validationResult</span>&quot;: <span class="Special">{</span>
+<span id="W1L32984" class="LineNr">32984 </span><span class="DiffChange">            </span><span class="DiffChange">&quot;</span><span class="Statement DiffChange">$ref</span><span class="DiffChange">&quot;</span><span class="DiffChange">:</span><span class="DiffChange"> </span><span class="DiffChange">&quot;</span><span class="Constant DiffChange">#/components/schemas/MEFValidationResultType</span><span class="DiffChange">&quot;</span><span class="DiffText">,</span><span class="DiffChange">                                                                                                             </span>
+<span id="W1L32985" class="LineNr">32985 </span><span class="DiffAdd">            </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">description</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">Result of the address validation (success, partial, fail)</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">                                                                                          </span>
+<span id="W1L32986" class="LineNr">32986 </span>          <span class="Special">}</span>,
+<span id="W1L32987" class="LineNr">32987 </span>          &quot;<span class="Statement">alternateGeographicAddress</span>&quot;: <span class="Special">{</span>
+<span id="W1L32988" class="LineNr">32988 </span>            &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W1L32989" class="LineNr">32989 </span>              &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/GeographicAddress</span>&quot;
+<span id="W1L32990" class="LineNr">32990 </span>            <span class="Special">}</span>,
+<span id="W1L32991" class="LineNr">32991 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">array</span>&quot;,
+<span id="W1L32992" class="Folded">32992 </span><span class="Folded">+--  1 line: &quot;description&quot;: &quot;An array of zero or more Addresses known to the Seller that are\nconsidered by the Seller to match the submittedGeographicAddress.\nNot including the bestMatchAddress. MEF: Alternatives should be\nprovided regardless of whether best match was found.\n&quot;</span>
+<span id="W1L32993" class="LineNr">32993 </span>          },
+<span id="W1L32994" class="LineNr">32994 </span>          &quot;<span class="Statement">provideAlternative</span>&quot;: <span class="Special">{</span>
+<span id="W1L32995" class="LineNr">32995 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Indicator provided by the requester to specify if alternate addresses must be provided in case of partial or fail result. MEF: The attribute is kept for TMF API compliance. MEF requires this attribute always to be set to 'true'. Alternatives should be provided regardless of whether best match was found. The Seller is allowed not to implement the support for 'false'</span><span class="Special">\n</span>&quot;,
+<span id="W1L32996" class="LineNr">32996 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">boolean</span>&quot;
+<span id="W1L32997" class="LineNr">32997 </span>          <span class="Special">}</span>,
+<span id="W1L32998" class="LineNr">32998 </span>          &quot;<span class="Statement">submittedGeographicAddress</span>&quot;: <span class="Special">{</span>
+<span id="W1L32999" class="LineNr">32999 </span><span class="DiffChange">            </span><span class="DiffChange">&quot;</span><span class="Statement DiffChange">$ref</span><span class="DiffChange">&quot;</span><span class="DiffChange">:</span><span class="DiffChange"> </span><span class="DiffChange">&quot;</span><span class="Constant DiffChange">#/components/schemas/GeographicAddress</span><span class="DiffChange">&quot;</span><span class="DiffText">,</span><span class="DiffChange">                                                                                                                   </span>
+<span id="W1L33000" class="LineNr">33000 </span><span class="DiffAdd">            </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">description</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">The address as submitted to validation. MEF: Structure used by the buyer to request geographic address validation</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">                                  </span>
+<span id="W1L33001" class="LineNr">33001 </span>          <span class="Special">}</span>,
+<span id="W1L33002" class="LineNr">33002 </span>          &quot;<span class="Statement">bestMatchGeographicAddress</span>&quot;: <span class="Special">{</span>
+<span id="W1L33003" class="LineNr">33003 </span><span class="DiffChange">            </span><span class="DiffChange">&quot;</span><span class="Statement DiffChange">$ref</span><span class="DiffChange">&quot;</span><span class="DiffChange">:</span><span class="DiffChange"> </span><span class="DiffChange">&quot;</span><span class="Constant DiffChange">#/components/schemas/GeographicAddress</span><span class="DiffChange">&quot;</span><span class="DiffText">,</span><span class="DiffChange">                                                                                                                   </span>
+<span id="W1L33004" class="LineNr">33004 </span><span class="DiffAdd">            </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">description</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">Represents that the Seller is confident this is likely a direct match to the submittedGeographicAddress</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">                                            </span>
+<span id="W1L33005" class="LineNr">33005 </span>          <span class="Special">}</span>
+<span id="W1L33006" class="LineNr">33006 </span>        },
+<span id="W1L33007" class="LineNr">33007 </span>        &quot;<span class="Statement">required</span>&quot;: <span class="Special">[</span>
+<span id="W1L33008" class="LineNr">33008 </span>          &quot;<span class="Constant">provideAlternative</span>&quot;,
+<span id="W1L33009" class="LineNr">33009 </span>          &quot;<span class="Constant">submittedGeographicAddress</span>&quot;
+<span id="W1L33010" class="LineNr">33010 </span>        <span class="Special">]</span>,
+<span id="W1L33011" class="Folded">33011 </span><span class="Folded">+--1086 lines: &quot;type&quot;: &quot;object&quot;-------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L34097" class="LineNr">34097 </span>          },
+<span id="W1L34098" class="LineNr">34098 </span>          &quot;<span class="Statement">externalId</span>&quot;: <span class="Special">{</span>
+<span id="W1L34099" class="LineNr">34099 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">ID given by the consumer and only understandable by him (to facilitate his searches afterwards)</span>&quot;,
+<span id="W1L34100" class="LineNr">34100 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W1L34101" class="LineNr">34101 </span>          <span class="Special">}</span>,
+<span id="W1L34102" class="LineNr">34102 </span>          &quot;<span class="Statement">buyerRequestedQuoteLevel</span>&quot;: <span class="Special">{</span>
+<span id="W1L34103" class="LineNr">34103 </span><span class="DiffAdd">            </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">description</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">An indication of whether the Buyer's Quote request is for a Quote of Budgetary or Firm level.</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">,</span><span class="DiffAdd">                                                     </span>
+<span id="W1L34104" class="LineNr">34104 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/MEFBuyerQuoteLevel</span>&quot;
+<span id="W1L34105" class="LineNr">34105 </span>          <span class="Special">}</span>,
+<span id="W1L34106" class="LineNr">34106 </span>          &quot;<span class="Statement">projectId</span>&quot;: <span class="Special">{</span>
+<span id="W1L34107" class="LineNr">34107 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">An identifier that is used to group Quotes that represent a unit of functionality that is important to a Buyer. A Project can be used to relate multiple Quotes together.</span>&quot;,
+<span id="W1L34108" class="LineNr">34108 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W1L34109" class="LineNr">34109 </span>          <span class="Special">}</span>,
+<span id="W1L34110" class="Folded">34110 </span><span class="Folded">+-- 50 lines: &quot;instantSyncQuote&quot;: {---------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L34160" class="LineNr">34160 </span>            &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W1L34161" class="LineNr">34161 </span>              &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/RelatedPlaceRefOrValue</span>&quot;
+<span id="W1L34162" class="LineNr">34162 </span>            <span class="Special">}</span>,
+<span id="W1L34163" class="LineNr">34163 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">array</span>&quot;
+<span id="W1L34164" class="LineNr">34164 </span>          },
+<span id="W1L34165" class="LineNr">34165 </span>          &quot;<span class="Statement">productConfiguration</span>&quot;: <span class="Special">{</span>
+<span id="W1L34166" class="LineNr">34166 </span><span class="DiffAdd">            </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">description</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">Technical attributes for the Product that would be delivered to fulfill the Quote Item.</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">,</span><span class="DiffAdd">                                                           </span>
+<span id="W1L34167" class="LineNr">34167 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/MEFProductConfiguration</span>&quot;
+<span id="W1L34168" class="LineNr">34168 </span>          <span class="Special">}</span>,
+<span id="W1L34169" class="LineNr">34169 </span>          &quot;<span class="Statement">productOffering</span>&quot;: <span class="Special">{</span>
+<span id="W1L34170" class="LineNr">34170 </span><span class="DiffAdd">            </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">description</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">A particular Product Offering defines the technical and commercial attributes and behaviors of a Product.</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">,</span><span class="DiffAdd">                                         </span>
+<span id="W1L34171" class="LineNr">34171 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/ProductOfferingRef</span>&quot;
+<span id="W1L34172" class="LineNr">34172 </span>          <span class="Special">}</span>,
+<span id="W1L34173" class="LineNr">34173 </span>          &quot;<span class="Statement">productRelationship</span>&quot;: <span class="Special">{</span>
+<span id="W1L34174" class="LineNr">34174 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">A list of references to existing products that are related to the Product that would be delivered to fulfill the Quote Item</span>&quot;,
+<span id="W1L34175" class="LineNr">34175 </span>            &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W1L34176" class="LineNr">34176 </span>              &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/ProductRelationshipWithGrouping</span>&quot;
+<span id="W1L34177" class="Folded">34177 </span><span class="Folded">+-- 22 lines: },----------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L34199" class="LineNr">34199 </span>        &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">object</span>&quot;
+<span id="W1L34200" class="LineNr">34200 </span>      },
+<span id="W1L34201" class="LineNr">34201 </span>      &quot;<span class="Statement">MEFQuoteItem_Common</span>&quot;: <span class="Special">{</span>
+<span id="W1L34202" class="LineNr">34202 </span>        &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Quote items describe an action to be performed on a productOffering or a product in order to get pricing elements and conditions.</span>&quot;,
+<span id="W1L34203" class="LineNr">34203 </span>        &quot;<span class="Statement">properties</span>&quot;: <span class="Special">{</span>
+<span id="W1L34204" class="LineNr">34204 </span>          &quot;<span class="Statement">requestedQuoteItemTerm</span>&quot;: <span class="Special">{</span>
+<span id="W1L34205" class="LineNr">34205 </span><span class="DiffAdd">            </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">description</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">The terms of the Quote Item. Used to describe a term (also known as commitment) for a Quote Item. Each Quote Item in a Quote Request could have a different Requested Quote Item Term. The Buyer specifies the longest term that they would accept. The Buyer may be willing to accept a shorter term. If the Seller responds with a term longer than the Buyer's request, it is treated as an alternate response.</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">,</span>
+<span id="W1L34206" class="LineNr">34206 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/MEFItemTerm</span>&quot;
+<span id="W1L34207" class="LineNr">34207 </span>          <span class="Special">}</span>,
+<span id="W1L34208" class="LineNr">34208 </span>          &quot;<span class="Statement">note</span>&quot;: <span class="Special">{</span>
+<span id="W1L34209" class="LineNr">34209 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Free form text associated with the quote item. Only useful in processes involving human interaction. Not applicable for the automated process.</span>&quot;,
+<span id="W1L34210" class="LineNr">34210 </span>            &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W1L34211" class="LineNr">34211 </span>              &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/Note</span>&quot;
+<span id="W1L34212" class="LineNr">34212 </span>            <span class="Special">}</span>,
+<span id="W1L34213" class="LineNr">34213 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">array</span>&quot;
+<span id="W1L34214" class="LineNr">34214 </span>          <span class="Special">}</span>,
+<span id="W1L34215" class="LineNr">34215 </span>          &quot;<span class="Statement">product</span>&quot;: <span class="Special">{</span>
+<span id="W1L34216" class="LineNr">34216 </span><span class="DiffAdd">            </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">description</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">The Buyer's existing Product for which the quote is being requested.</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">,</span><span class="DiffAdd">                                                                              </span>
+<span id="W1L34217" class="LineNr">34217 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/MEFProductRefOrValueQuote</span>&quot;
+<span id="W1L34218" class="LineNr">34218 </span>          <span class="Special">}</span>,
+<span id="W1L34219" class="LineNr">34219 </span>          &quot;<span class="Statement">productOfferingQualificationItem</span>&quot;: <span class="Special">{</span>
+<span id="W1L34220" class="LineNr">34220 </span><span class="DiffAdd">            </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">description</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">A reference to a previously done POQ with item specified</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">,</span><span class="DiffAdd">                                                                                          </span>
+<span id="W1L34221" class="LineNr">34221 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/ProductOfferingQualificationItemRef</span>&quot;
+<span id="W1L34222" class="LineNr">34222 </span>          <span class="Special">}</span>,
+<span id="W1L34223" class="LineNr">34223 </span>          &quot;<span class="Statement">relatedContactInformation</span>&quot;: <span class="Special">{</span>
+<span id="W1L34224" class="LineNr">34224 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Contact information of an individual or organization playing a role for this Quote. If `instantSyncQuote` equals `false`  then 'Quote Item Technical Contact' must be specified (`role: quoteItemTechnicalContact`). If `instantSyncQuote` equals `false` and the Quote Item requires a location,  the Buyer MUST provide the Quote Item Location Contact Information `role: quoteItemLocationContact`.</span><span class="Special">\n</span>&quot;,
+<span id="W1L34225" class="LineNr">34225 </span>            &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W1L34226" class="LineNr">34226 </span>              &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/RelatedContactInformation</span>&quot;
+<span id="W1L34227" class="Folded">34227 </span><span class="Folded">+--  3 lines: },----------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L34230" class="LineNr">34230 </span>          &quot;<span class="Statement">agreementName</span>&quot;: <span class="Special">{</span>
+<span id="W1L34231" class="LineNr">34231 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Name of the agreement. The name is unique between the Buyer and the Seller.</span>&quot;,
+<span id="W1L34232" class="LineNr">34232 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W1L34233" class="LineNr">34233 </span>          <span class="Special">}</span>,
+<span id="W1L34234" class="LineNr">34234 </span>          &quot;<span class="Statement">action</span>&quot;: <span class="Special">{</span>
+<span id="W1L34235" class="LineNr">34235 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Product action to be applied to this Quote Item. This corresponds to the Order Item Action when an associated product is ordered.</span>&quot;,
+<span id="W1L34236" class="LineNr">34236 </span><span class="DiffChange">            </span><span class="DiffChange">&quot;</span><span class="Statement DiffText">$ref</span><span class="DiffText">&quot;</span><span class="DiffText">:</span><span class="DiffText"> </span><span class="DiffText">&quot;</span><span class="Constant DiffText">#/components/schemas/MEFProductActionType</span><span class="DiffText">&quot;</span><span class="DiffChange">                                                                                                                 </span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L34237" class="LineNr">34237 </span>          <span class="Special">}</span>,
+<span id="W1L34238" class="LineNr">34238 </span>          &quot;<span class="Statement">dealReference</span>&quot;: <span class="Special">{</span>
+<span id="W1L34239" class="LineNr">34239 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">A pre-agreed pricing modifier reference that the Seller is offering to the Buyer which will impact the price.</span>&quot;,
+<span id="W1L34240" class="LineNr">34240 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W1L34241" class="LineNr">34241 </span>          <span class="Special">}</span>,
+<span id="W1L34242" class="LineNr">34242 </span>          &quot;<span class="Statement">id</span>&quot;: <span class="Special">{</span>
+<span id="W1L34243" class="LineNr">34243 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Identifier of the quote item (generally it is a sequence number 01, 02, 03, ...)</span>&quot;,
+<span id="W1L34244" class="LineNr">34244 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W1L34245" class="LineNr">34245 </span>          <span class="Special">}</span>,
+<span id="W1L34246" class="LineNr">34246 </span>          &quot;<span class="Statement">requestedQuoteItemInstallationInterval</span>&quot;: <span class="Special">{</span>
+<span id="W1L34247" class="LineNr">34247 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">The installation interval requested by the Buyer.</span>&quot;,
+<span id="W1L34248" class="LineNr">34248 </span><span class="DiffChange">            </span><span class="DiffChange">&quot;</span><span class="Statement DiffText">$ref</span><span class="DiffText">&quot;</span><span class="DiffText">:</span><span class="DiffText"> </span><span class="DiffText">&quot;</span><span class="Constant DiffText">#/components/schemas/Duration-2</span><span class="DiffText">&quot;</span><span class="DiffChange">                                                                                                                           </span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L34249" class="LineNr">34249 </span>          <span class="Special">}</span>,
+<span id="W1L34250" class="LineNr">34250 </span>          &quot;<span class="Statement">quoteItemRelationship</span>&quot;: <span class="Special">{</span>
+<span id="W1L34251" class="LineNr">34251 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">A relationship from item within a quote</span>&quot;,
+<span id="W1L34252" class="LineNr">34252 </span>            &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W1L34253" class="LineNr">34253 </span>              &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/QuoteItemRelationship</span>&quot;
+<span id="W1L34254" class="LineNr">34254 </span>            <span class="Special">}</span>,
+<span id="W1L34255" class="Folded">34255 </span><span class="Folded">+--143 lines: &quot;type&quot;: &quot;array&quot;---------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L34398" class="LineNr">34398 </span>        &quot;<span class="Statement">properties</span>&quot;: <span class="Special">{</span>
+<span id="W1L34399" class="LineNr">34399 </span>          &quot;<span class="Statement">unitOfMeasure</span>&quot;: <span class="Special">{</span>
+<span id="W1L34400" class="LineNr">34400 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Unit of Measure if price depending on it (Gb, SMS volume, etc..) MEF: if Quote Item Price Type equals usageBased</span>&quot;,
+<span id="W1L34401" class="LineNr">34401 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W1L34402" class="LineNr">34402 </span>          <span class="Special">}</span>,
+<span id="W1L34403" class="LineNr">34403 </span>          &quot;<span class="Statement">price</span>&quot;: <span class="Special">{</span>
+<span id="W1L34404" class="LineNr">34404 </span><span class="DiffAdd">            </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">description</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">The associated price</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">,</span><span class="DiffAdd">                                                                                                                              </span>
+<span id="W1L34405" class="LineNr">34405 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/Price</span>&quot;
+<span id="W1L34406" class="LineNr">34406 </span>          <span class="Special">}</span>,
+<span id="W1L34407" class="LineNr">34407 </span>          &quot;<span class="Statement">name</span>&quot;: <span class="Special">{</span>
+<span id="W1L34408" class="LineNr">34408 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Name of the quote/quote item price</span>&quot;,
+<span id="W1L34409" class="LineNr">34409 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W1L34410" class="LineNr">34410 </span>          <span class="Special">}</span>,
+<span id="W1L34411" class="LineNr">34411 </span>          &quot;<span class="Statement">priceType</span>&quot;: <span class="Special">{</span>
+<span id="W1L34412" class="LineNr">34412 </span><span class="DiffAdd">            </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">description</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">Indicates if the price is for recurring, non-recurring, or usage based charges</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">,</span><span class="DiffAdd">                                                                    </span>
+<span id="W1L34413" class="LineNr">34413 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/MEFPriceType</span>&quot;
+<span id="W1L34414" class="LineNr">34414 </span>          <span class="Special">}</span>,
+<span id="W1L34415" class="LineNr">34415 </span>          &quot;<span class="Statement">description</span>&quot;: <span class="Special">{</span>
+<span id="W1L34416" class="LineNr">34416 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Description of the quote/quote item price</span>&quot;,
+<span id="W1L34417" class="LineNr">34417 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W1L34418" class="LineNr">34418 </span>          <span class="Special">}</span>,
+<span id="W1L34419" class="LineNr">34419 </span>          &quot;<span class="Statement">recurringChargePeriod</span>&quot;: <span class="Special">{</span>
+<span id="W1L34420" class="LineNr">34420 </span><span class="DiffAdd">            </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">description</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">Used for a recurring charge to indicate a period</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">,</span><span class="DiffAdd">                                                                                                  </span>
+<span id="W1L34421" class="LineNr">34421 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/MEFChargePeriod</span>&quot;
+<span id="W1L34422" class="LineNr">34422 </span>          <span class="Special">}</span>
+<span id="W1L34423" class="LineNr">34423 </span>        <span class="Special">}</span>,
+<span id="W1L34424" class="LineNr">34424 </span>        &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">object</span>&quot;
+<span id="W1L34425" class="LineNr">34425 </span>      },
+<span id="W1L34426" class="LineNr">34426 </span>      &quot;<span class="Statement">QuoteItem</span>&quot;: <span class="Special">{</span>
+<span id="W1L34427" class="Folded">34427 </span><span class="Folded">+--  9 lines: &quot;allOf&quot;: [--------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L34436" class="LineNr">34436 </span>                &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W1L34437" class="LineNr">34437 </span>                  &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/TerminationError</span>&quot;
+<span id="W1L34438" class="LineNr">34438 </span>                <span class="Special">}</span>,
+<span id="W1L34439" class="LineNr">34439 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">array</span>&quot;
+<span id="W1L34440" class="LineNr">34440 </span>              },
+<span id="W1L34441" class="LineNr">34441 </span>              &quot;<span class="Statement">quoteItemInstallationInterval</span>&quot;: <span class="Special">{</span>
+<span id="W1L34442" class="LineNr">34442 </span><span class="DiffAdd">                </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">description</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">Quote Item Installation Interval as proposed by the Seller for the Quote.</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">,</span><span class="DiffAdd">                                                                     </span>
+<span id="W1L34443" class="LineNr">34443 </span>                &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/Duration-2</span>&quot;
+<span id="W1L34444" class="LineNr">34444 </span>              <span class="Special">}</span>,
+<span id="W1L34445" class="LineNr">34445 </span>              &quot;<span class="Statement">subjectToFeasibilityCheck</span>&quot;: <span class="Special">{</span>
+<span id="W1L34446" class="LineNr">34446 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">For a Firm Quote Level indicates if the pricing requires a Feasibility Check. The Seller indicates if the Quote Item requires a Feasibility Check. This is not used for a Budgetary Quote Level.</span>&quot;,
+<span id="W1L34447" class="LineNr">34447 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">boolean</span>&quot;
+<span id="W1L34448" class="LineNr">34448 </span>              <span class="Special">}</span>,
+<span id="W1L34449" class="Folded">34449 </span><span class="Folded">+--  4 lines: &quot;quoteItemTerm&quot;: {------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L34453" class="LineNr">34453 </span>                },
+<span id="W1L34454" class="LineNr">34454 </span>                &quot;<span class="Statement">maxItems</span>&quot;: <span class="Constant">1</span>,
+<span id="W1L34455" class="LineNr">34455 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">array</span>&quot;
+<span id="W1L34456" class="LineNr">34456 </span>              },
+<span id="W1L34457" class="LineNr">34457 </span>              &quot;<span class="Statement">state</span>&quot;: <span class="Special">{</span>
+<span id="W1L34458" class="LineNr">34458 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">The state of the Quote Item.</span>&quot;,
+<span id="W1L34459" class="LineNr">34459 </span><span class="DiffChange">                </span><span class="DiffChange">&quot;</span><span class="Statement DiffText">$ref</span><span class="DiffText">&quot;</span><span class="DiffText">:</span><span class="DiffText"> </span><span class="DiffText">&quot;</span><span class="Constant DiffText">#/components/schemas/MEFQuoteItemStateType</span><span class="DiffText">&quot;</span><span class="DiffChange">                                                                                                            </span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L34460" class="LineNr">34460 </span>              <span class="Special">}</span>,
+<span id="W1L34461" class="LineNr">34461 </span>              &quot;<span class="Statement">quoteItemPrice</span>&quot;: <span class="Special">{</span>
+<span id="W1L34462" class="LineNr">34462 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Price for this quote item</span>&quot;,
+<span id="W1L34463" class="LineNr">34463 </span>                &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W1L34464" class="LineNr">34464 </span>                  &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/QuotePrice</span>&quot;
+<span id="W1L34465" class="LineNr">34465 </span>                <span class="Special">}</span>,
+<span id="W1L34466" class="Folded">34466 </span><span class="Folded">+-- 36 lines: &quot;type&quot;: &quot;array&quot;---------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L34502" class="LineNr">34502 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">The date on when the state was reached</span>&quot;,
+<span id="W1L34503" class="LineNr">34503 </span>            &quot;<span class="Statement">format</span>&quot;: &quot;<span class="Constant">date-time</span>&quot;,
+<span id="W1L34504" class="LineNr">34504 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W1L34505" class="LineNr">34505 </span>          },
+<span id="W1L34506" class="LineNr">34506 </span>          &quot;<span class="Statement">state</span>&quot;: <span class="Special">{</span>
+<span id="W1L34507" class="LineNr">34507 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">A state reached at the change date</span>&quot;,
+<span id="W1L34508" class="LineNr">34508 </span><span class="DiffChange">            </span><span class="DiffChange">&quot;</span><span class="Statement DiffText">$ref</span><span class="DiffText">&quot;</span><span class="DiffText">:</span><span class="DiffText"> </span><span class="DiffText">&quot;</span><span class="Constant DiffText">#/components/schemas/MEFQuoteStateType</span><span class="DiffText">&quot;</span><span class="DiffChange">                                                                                                                    </span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L34509" class="LineNr">34509 </span>          <span class="Special">}</span>
+<span id="W1L34510" class="LineNr">34510 </span>        },
+<span id="W1L34511" class="LineNr">34511 </span>        &quot;<span class="Statement">required</span>&quot;: <span class="Special">[</span>
+<span id="W1L34512" class="LineNr">34512 </span>          &quot;<span class="Constant">changeDate</span>&quot;,
+<span id="W1L34513" class="LineNr">34513 </span>          &quot;<span class="Constant">state</span>&quot;
+<span id="W1L34514" class="LineNr">34514 </span>        <span class="Special">]</span>,
+<span id="W1L34515" class="Folded">34515 </span><span class="Folded">+-- 16 lines: &quot;type&quot;: &quot;object&quot;--------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L34531" class="LineNr">34531 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">This is the date provided by the Seller to indicate the date by which the Quote is expected to reach a Quote Completion State</span>&quot;,
+<span id="W1L34532" class="LineNr">34532 </span>                &quot;<span class="Statement">format</span>&quot;: &quot;<span class="Constant">date-time</span>&quot;,
+<span id="W1L34533" class="LineNr">34533 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W1L34534" class="LineNr">34534 </span>              },
+<span id="W1L34535" class="LineNr">34535 </span>              &quot;<span class="Statement">validFor</span>&quot;: <span class="Special">{</span>
+<span id="W1L34536" class="LineNr">34536 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Quote validity period. For use in the context of this attribute, only the endDateTime attribute must be used.</span>&quot;,
+<span id="W1L34537" class="LineNr">34537 </span><span class="DiffChange">                </span><span class="DiffChange">&quot;</span><span class="Statement DiffText">$ref</span><span class="DiffText">&quot;</span><span class="DiffText">:</span><span class="DiffText"> </span><span class="DiffText">&quot;</span><span class="Constant DiffText">#/components/schemas/TimePeriod</span><span class="DiffText">&quot;</span><span class="DiffChange">                                                                                                                       </span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L34538" class="LineNr">34538 </span>              <span class="Special">}</span>,
+<span id="W1L34539" class="LineNr">34539 </span>              &quot;<span class="Statement">quoteLevel</span>&quot;: <span class="Special">{</span>
+<span id="W1L34540" class="LineNr">34540 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">An indication of whether the Seller's Quote Response is Budgetary, Firm - Subject to Feasibility Check, or Firm. The Seller Quote Level is provided by the Seller when responding to a Quote request.  This represents the lowest Quote Item Level of all Quote Items included in the Quote.</span>&quot;,
+<span id="W1L34541" class="LineNr">34541 </span><span class="DiffChange">                </span><span class="DiffChange">&quot;</span><span class="Statement DiffText">$ref</span><span class="DiffText">&quot;</span><span class="DiffText">:</span><span class="DiffText"> </span><span class="DiffText">&quot;</span><span class="Constant DiffText">#/components/schemas/MEFSellerQuoteLevel</span><span class="DiffText">&quot;</span><span class="DiffChange">                                                                                                              </span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L34542" class="LineNr">34542 </span>              <span class="Special">}</span>,
+<span id="W1L34543" class="LineNr">34543 </span>              &quot;<span class="Statement">quoteItem</span>&quot;: <span class="Special">{</span>
+<span id="W1L34544" class="LineNr">34544 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">An item of the quote - it is used to describe an operation on a product to be quoted</span>&quot;,
+<span id="W1L34545" class="LineNr">34545 </span>                &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W1L34546" class="LineNr">34546 </span>                  &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/QuoteItem</span>&quot;
+<span id="W1L34547" class="LineNr">34547 </span>                <span class="Special">}</span>,
+<span id="W1L34548" class="Folded">34548 </span><span class="Folded">+-- 14 lines: &quot;minItems&quot;: 1,----------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L34562" class="LineNr">34562 </span>              &quot;<span class="Statement">href</span>&quot;: <span class="Special">{</span>
+<span id="W1L34563" class="LineNr">34563 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Hyperlink representing this Quote. Hyperlink MAY be used when providing a response by the Seller</span><span class="Special">\n</span>&quot;,
+<span id="W1L34564" class="LineNr">34564 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W1L34565" class="LineNr">34565 </span>              <span class="Special">}</span>,
+<span id="W1L34566" class="LineNr">34566 </span>              &quot;<span class="Statement">state</span>&quot;: <span class="Special">{</span>
+<span id="W1L34567" class="LineNr">34567 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">The state of the Quote.</span>&quot;,
+<span id="W1L34568" class="LineNr">34568 </span><span class="DiffChange">                </span><span class="DiffChange">&quot;</span><span class="Statement DiffText">$ref</span><span class="DiffText">&quot;</span><span class="DiffText">:</span><span class="DiffText"> </span><span class="DiffText">&quot;</span><span class="Constant DiffText">#/components/schemas/MEFQuoteStateType</span><span class="DiffText">&quot;</span><span class="DiffChange">                                                                                                                </span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L34569" class="LineNr">34569 </span>              <span class="Special">}</span>,
+<span id="W1L34570" class="LineNr">34570 </span>              &quot;<span class="Statement">quoteDate</span>&quot;: <span class="Special">{</span>
+<span id="W1L34571" class="LineNr">34571 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Date and time when the quote was created</span>&quot;,
+<span id="W1L34572" class="LineNr">34572 </span>                &quot;<span class="Statement">format</span>&quot;: &quot;<span class="Constant">date-time</span>&quot;,
+<span id="W1L34573" class="LineNr">34573 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W1L34574" class="LineNr">34574 </span>              <span class="Special">}</span>
+<span id="W1L34575" class="Folded">34575 </span><span class="Folded">+--202 lines: },----------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+</pre>
+</div></td>
+<td><div>
+<pre>
+<span id="W2L1" class="Folded">    1 </span><span class="Folded">+--12229 lines: {---------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L12230" class="LineNr">12230 </span>                      &quot;<span class="Statement">bgp_peering_as_number</span>&quot;: <span class="Special">{</span>
+<span id="W2L12231" class="LineNr">12231 </span>                        &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/BgpPeeringAsNumber</span>&quot;
+<span id="W2L12232" class="LineNr">12232 </span>                      <span class="Special">}</span>
+<span id="W2L12233" class="LineNr">12233 </span>                    }
+<span id="W2L12234" class="LineNr">12234 </span>                  },
+<span id="W2L12235" class="LineNr">12235 </span>                  &quot;<span class="Statement">termination_site</span>&quot;: <span class="Special">{</span>
+<span id="W2L12236" class="LineNr">12236 </span><span class="DiffChange">                    </span><span class="DiffChange">&quot;</span><span class="Statement DiffText">items</span><span class="DiffText">&quot;</span><span class="DiffText">:</span><span class="DiffText"> </span><span class="Special DiffText">{</span><span class="DiffChange">                                                                                                                                                  </span>
+<span id="W2L12237" class="LineNr">12237 </span><span class="DiffAdd">                      </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">$ref</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">#/components/schemas/BasicTerminationSite</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">                                                                                                       </span>
+<span id="W2L12238" class="LineNr">12238 </span><span class="DiffAdd">                    </span><span class="Special DiffAdd">}</span><span class="DiffAdd">,</span><span class="DiffAdd">                                                                                                                                                          </span>
+<span id="W2L12239" class="LineNr">12239 </span>                    &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">To create a new Termination Site, specify these fields</span>&quot;
+<span id="W2L12240" class="LineNr">12240 </span>                  <span class="Special">}</span>,
+<span id="W2L12241" class="LineNr">12241 </span>                  &quot;<span class="Statement">termination_site_id</span>&quot;: <span class="Special">{</span>
+<span id="W2L12242" class="LineNr">12242 </span>                    &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">integer</span>&quot;,
+<span id="W2L12243" class="LineNr">12243 </span>                    &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">To use an existing Termination Site, specify its ID</span>&quot;,
+<span id="W2L12244" class="LineNr">12244 </span>                    &quot;<span class="Statement">example</span>&quot;: <span class="Constant">45</span>
+<span id="W2L12245" class="Folded">12245 </span><span class="Folded">+--8808 lines: }----------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L21053" class="LineNr">21053 </span>                    &quot;<span class="Statement">updated_at</span>&quot;: &quot;<span class="Constant">2024-07-15T12:38:48.933Z</span>&quot;
+<span id="W2L21054" class="LineNr">21054 </span>                  }
+<span id="W2L21055" class="LineNr">21055 </span>                ],
+<span id="W2L21056" class="LineNr">21056 </span>                &quot;<span class="Statement">schema</span>&quot;: <span class="Special">{</span>
+<span id="W2L21057" class="LineNr">21057 </span>                  &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">array</span>&quot;,
+<span id="W2L21058" class="LineNr">21058 </span>                  &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L21059" class="LineNr">21059 </span>                    &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/get</span>&quot;
+<span id="W2L21060" class="LineNr">21060 </span>                  <span class="Special">}</span>
+<span id="W2L21061" class="LineNr">21061 </span>                <span class="Special">}</span>
+<span id="W2L21062" class="LineNr">21062 </span>              }
+<span id="W2L21063" class="LineNr">21063 </span>            },
+<span id="W2L21064" class="LineNr">21064 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">OK</span>&quot;,
+<span id="W2L21065" class="Folded">21065 </span><span class="Folded">+--8403 lines: &quot;headers&quot;: {}----------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L29468" class="LineNr">29468 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/BasicOrder</span>&quot;
+<span id="W2L29469" class="LineNr">29469 </span>          },
+<span id="W2L29470" class="LineNr">29470 </span>          <span class="Special">{</span>
+<span id="W2L29471" class="LineNr">29471 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">object</span>&quot;,
+<span id="W2L29472" class="LineNr">29472 </span>            &quot;<span class="Statement">properties</span>&quot;: <span class="Special">{</span>
+<span id="W2L29473" class="LineNr">29473 </span>              &quot;<span class="Statement">status</span>&quot;: <span class="Special">{</span>
+<span id="W2L29474" class="LineNr">29474 </span><span class="DiffChange">                </span><span class="DiffChange">&quot;</span><span class="Statement DiffChange">$ref</span><span class="DiffChange">&quot;</span><span class="DiffChange">:</span><span class="DiffChange"> </span><span class="DiffChange">&quot;</span><span class="Constant DiffChange">#/components/schemas/Status</span><span class="DiffChange">&quot;</span><span class="DiffChange">                                                                                                                           </span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L29475" class="LineNr">29475 </span>              <span class="Special">}</span>,
+<span id="W2L29476" class="LineNr">29476 </span>              &quot;<span class="Statement">time_created</span>&quot;: <span class="Special">{</span>
+<span id="W2L29477" class="LineNr">29477 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;,
+<span id="W2L29478" class="LineNr">29478 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Exact date and time the order was created.</span>&quot;,
+<span id="W2L29479" class="LineNr">29479 </span>                &quot;<span class="Statement">example</span>&quot;: &quot;<span class="Constant">2020-11-18T14:34:53.246Z</span>&quot;
+<span id="W2L29480" class="LineNr">29480 </span>              <span class="Special">}</span>,
+<span id="W2L29481" class="Folded">29481 </span><span class="Folded">+--3222 lines: &quot;time_readyforprovision&quot;: {--------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L32703" class="LineNr">32703 </span>          &quot;<span class="Statement">@schemaLocation</span>&quot;: <span class="Special">{</span>
+<span id="W2L32704" class="LineNr">32704 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">A URI to a JSON-Schema file that defines additional attributes and relationships. May be used to define additional GeographicAddress types. Usage of this attribute must be agreed upon between Buyer and Seller.</span>&quot;,
+<span id="W2L32705" class="LineNr">32705 </span>            &quot;<span class="Statement">format</span>&quot;: &quot;<span class="Constant">uri</span>&quot;,
+<span id="W2L32706" class="LineNr">32706 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W2L32707" class="LineNr">32707 </span>          <span class="Special">}</span>,
+<span id="W2L32708" class="LineNr">32708 </span>          &quot;<span class="Statement">associatedGeographicAddress</span>&quot;: <span class="Special">{</span>
+<span id="W2L32709" class="LineNr">32709 </span><span class="DiffChange">            </span><span class="DiffChange">&quot;</span><span class="Statement DiffChange">$ref</span><span class="DiffChange">&quot;</span><span class="DiffChange">:</span><span class="DiffChange"> </span><span class="DiffChange">&quot;</span><span class="Constant DiffChange">#/components/schemas/FieldedAddress</span><span class="DiffChange">&quot;</span><span class="DiffChange">                                                                                                                       </span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L32710" class="LineNr">32710 </span>          <span class="Special">}</span>
+<span id="W2L32711" class="LineNr">32711 </span>        },
+<span id="W2L32712" class="LineNr">32712 </span>        &quot;<span class="Statement">required</span>&quot;: <span class="Special">[</span>
+<span id="W2L32713" class="LineNr">32713 </span>          &quot;<span class="Constant">@type</span>&quot;
+<span id="W2L32714" class="LineNr">32714 </span>        <span class="Special">]</span>,
+<span id="W2L32715" class="LineNr">32715 </span>        &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">object</span>&quot;
+<span id="W2L32716" class="Folded">32716 </span><span class="Folded">+--102 lines: },----------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L32818" class="LineNr">32818 </span>              },
+<span id="W2L32819" class="LineNr">32819 </span>              &quot;<span class="Statement">streetNrLastSuffix</span>&quot;: <span class="Special">{</span>
+<span id="W2L32820" class="LineNr">32820 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Last street number suffix for a ranged address</span>&quot;,
+<span id="W2L32821" class="LineNr">32821 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W2L32822" class="LineNr">32822 </span>              <span class="Special">}</span>,
+<span id="W2L32823" class="LineNr">32823 </span>              &quot;<span class="Statement">geographicSubAddress</span>&quot;: <span class="Special">{</span>
+<span id="W2L32824" class="LineNr">32824 </span><span class="DiffChange">                </span><span class="DiffChange">&quot;</span><span class="Statement DiffChange">$ref</span><span class="DiffChange">&quot;</span><span class="DiffChange">:</span><span class="DiffChange"> </span><span class="DiffChange">&quot;</span><span class="Constant DiffChange">#/components/schemas/GeographicSubAddress</span><span class="DiffChange">&quot;</span><span class="DiffChange">                                                                                                             </span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L32825" class="LineNr">32825 </span>              <span class="Special">}</span>,
+<span id="W2L32826" class="LineNr">32826 </span>              &quot;<span class="Statement">streetSuffix</span>&quot;: <span class="Special">{</span>
+<span id="W2L32827" class="LineNr">32827 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">A modifier denoting a relative direction</span>&quot;,
+<span id="W2L32828" class="LineNr">32828 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W2L32829" class="LineNr">32829 </span>              <span class="Special">}</span>
+<span id="W2L32830" class="LineNr">32830 </span>            },
+<span id="W2L32831" class="Folded">32831 </span><span class="Folded">+--121 lines: &quot;required&quot;: [-----------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L32952" class="LineNr">32952 </span>        &quot;<span class="Statement">properties</span>&quot;: <span class="Special">{</span>
+<span id="W2L32953" class="LineNr">32953 </span>          &quot;<span class="Statement">provideAlternative</span>&quot;: <span class="Special">{</span>
+<span id="W2L32954" class="LineNr">32954 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Indicator provided by the requester to specify if alternate addresses must be provided in case of partial or fail result. MEF: The attribute is kept for TMF API compliance. MEF requires this attribute always to be set to 'true'. Alternatives should be provided regardless of whether best match was found. The Seller is allowed not to implement the support for 'false'</span><span class="Special">\n</span>&quot;,
+<span id="W2L32955" class="LineNr">32955 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">boolean</span>&quot;
+<span id="W2L32956" class="LineNr">32956 </span>          <span class="Special">}</span>,
+<span id="W2L32957" class="LineNr">32957 </span>          &quot;<span class="Statement">submittedGeographicAddress</span>&quot;: <span class="Special">{</span>
+<span id="W2L32958" class="LineNr">32958 </span><span class="DiffChange">            </span><span class="DiffChange">&quot;</span><span class="Statement DiffChange">$ref</span><span class="DiffChange">&quot;</span><span class="DiffChange">:</span><span class="DiffChange"> </span><span class="DiffChange">&quot;</span><span class="Constant DiffChange">#/components/schemas/GeographicAddress</span><span class="DiffChange">&quot;</span><span class="DiffChange">                                                                                                                    </span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L32959" class="LineNr">32959 </span>          <span class="Special">}</span>
+<span id="W2L32960" class="LineNr">32960 </span>        <span class="Special">}</span>,
+<span id="W2L32961" class="LineNr">32961 </span>        &quot;<span class="Statement">required</span>&quot;: <span class="Special">[</span>
+<span id="W2L32962" class="LineNr">32962 </span>          &quot;<span class="Constant">provideAlternative</span>&quot;,
+<span id="W2L32963" class="LineNr">32963 </span>          &quot;<span class="Constant">submittedGeographicAddress</span>&quot;
+<span id="W2L32964" class="LineNr">32964 </span>        <span class="Special">]</span>,
+<span id="W2L32965" class="Folded">32965 </span><span class="Folded">+--  9 lines: &quot;type&quot;: &quot;object&quot;--------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L32974" class="LineNr">32974 </span>        &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W2L32975" class="LineNr">32975 </span>      },
+<span id="W2L32976" class="LineNr">32976 </span>      &quot;<span class="Statement">GeographicAddressValidation</span>&quot;: <span class="Special">{</span>
+<span id="W2L32977" class="LineNr">32977 </span>        &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">This resource is used to manage address validation response.</span>&quot;,
+<span id="W2L32978" class="LineNr">32978 </span>        &quot;<span class="Statement">properties</span>&quot;: <span class="Special">{</span>
+<span id="W2L32979" class="LineNr">32979 </span>          &quot;<span class="Statement">validationResult</span>&quot;: <span class="Special">{</span>
+<span id="W2L32980" class="LineNr">32980 </span><span class="DiffChange">            </span><span class="DiffChange">&quot;</span><span class="Statement DiffChange">$ref</span><span class="DiffChange">&quot;</span><span class="DiffChange">:</span><span class="DiffChange"> </span><span class="DiffChange">&quot;</span><span class="Constant DiffChange">#/components/schemas/MEFValidationResultType</span><span class="DiffChange">&quot;</span><span class="DiffChange">                                                                                                              </span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L32981" class="LineNr">32981 </span>          <span class="Special">}</span>,
+<span id="W2L32982" class="LineNr">32982 </span>          &quot;<span class="Statement">alternateGeographicAddress</span>&quot;: <span class="Special">{</span>
+<span id="W2L32983" class="LineNr">32983 </span>            &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W2L32984" class="LineNr">32984 </span>              &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/GeographicAddress</span>&quot;
+<span id="W2L32985" class="LineNr">32985 </span>            <span class="Special">}</span>,
+<span id="W2L32986" class="LineNr">32986 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">array</span>&quot;,
+<span id="W2L32987" class="Folded">32987 </span><span class="Folded">+--  1 line: &quot;description&quot;: &quot;An array of zero or more Addresses known to the Seller that are\nconsidered by the Seller to match the submittedGeographicAddress.\nNot including the bestMatchAddress. MEF: Alternatives should be\nprovided regardless of whether best match was found.\n&quot;</span>
+<span id="W2L32988" class="LineNr">32988 </span>          },
+<span id="W2L32989" class="LineNr">32989 </span>          &quot;<span class="Statement">provideAlternative</span>&quot;: <span class="Special">{</span>
+<span id="W2L32990" class="LineNr">32990 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Indicator provided by the requester to specify if alternate addresses must be provided in case of partial or fail result. MEF: The attribute is kept for TMF API compliance. MEF requires this attribute always to be set to 'true'. Alternatives should be provided regardless of whether best match was found. The Seller is allowed not to implement the support for 'false'</span><span class="Special">\n</span>&quot;,
+<span id="W2L32991" class="LineNr">32991 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">boolean</span>&quot;
+<span id="W2L32992" class="LineNr">32992 </span>          <span class="Special">}</span>,
+<span id="W2L32993" class="LineNr">32993 </span>          &quot;<span class="Statement">submittedGeographicAddress</span>&quot;: <span class="Special">{</span>
+<span id="W2L32994" class="LineNr">32994 </span><span class="DiffChange">            </span><span class="DiffChange">&quot;</span><span class="Statement DiffChange">$ref</span><span class="DiffChange">&quot;</span><span class="DiffChange">:</span><span class="DiffChange"> </span><span class="DiffChange">&quot;</span><span class="Constant DiffChange">#/components/schemas/GeographicAddress</span><span class="DiffChange">&quot;</span><span class="DiffChange">                                                                                                                    </span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L32995" class="LineNr">32995 </span>          <span class="Special">}</span>,
+<span id="W2L32996" class="LineNr">32996 </span>          &quot;<span class="Statement">bestMatchGeographicAddress</span>&quot;: <span class="Special">{</span>
+<span id="W2L32997" class="LineNr">32997 </span><span class="DiffChange">            </span><span class="DiffChange">&quot;</span><span class="Statement DiffChange">$ref</span><span class="DiffChange">&quot;</span><span class="DiffChange">:</span><span class="DiffChange"> </span><span class="DiffChange">&quot;</span><span class="Constant DiffChange">#/components/schemas/GeographicAddress</span><span class="DiffChange">&quot;</span><span class="DiffChange">                                                                                                                    </span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L32998" class="LineNr">32998 </span>          <span class="Special">}</span>
+<span id="W2L32999" class="LineNr">32999 </span>        },
+<span id="W2L33000" class="LineNr">33000 </span>        &quot;<span class="Statement">required</span>&quot;: <span class="Special">[</span>
+<span id="W2L33001" class="LineNr">33001 </span>          &quot;<span class="Constant">provideAlternative</span>&quot;,
+<span id="W2L33002" class="LineNr">33002 </span>          &quot;<span class="Constant">submittedGeographicAddress</span>&quot;
+<span id="W2L33003" class="LineNr">33003 </span>        <span class="Special">]</span>,
+<span id="W2L33004" class="Folded">33004 </span><span class="Folded">+--1086 lines: &quot;type&quot;: &quot;object&quot;-------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34090" class="LineNr">34090 </span>          },
+<span id="W2L34091" class="LineNr">34091 </span>          &quot;<span class="Statement">externalId</span>&quot;: <span class="Special">{</span>
+<span id="W2L34092" class="LineNr">34092 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">ID given by the consumer and only understandable by him (to facilitate his searches afterwards)</span>&quot;,
+<span id="W2L34093" class="LineNr">34093 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W2L34094" class="LineNr">34094 </span>          <span class="Special">}</span>,
+<span id="W2L34095" class="LineNr">34095 </span>          &quot;<span class="Statement">buyerRequestedQuoteLevel</span>&quot;: <span class="Special">{</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34096" class="LineNr">34096 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/MEFBuyerQuoteLevel</span>&quot;
+<span id="W2L34097" class="LineNr">34097 </span>          <span class="Special">}</span>,
+<span id="W2L34098" class="LineNr">34098 </span>          &quot;<span class="Statement">projectId</span>&quot;: <span class="Special">{</span>
+<span id="W2L34099" class="LineNr">34099 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">An identifier that is used to group Quotes that represent a unit of functionality that is important to a Buyer. A Project can be used to relate multiple Quotes together.</span>&quot;,
+<span id="W2L34100" class="LineNr">34100 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W2L34101" class="LineNr">34101 </span>          <span class="Special">}</span>,
+<span id="W2L34102" class="Folded">34102 </span><span class="Folded">+-- 50 lines: &quot;instantSyncQuote&quot;: {---------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34152" class="LineNr">34152 </span>            &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W2L34153" class="LineNr">34153 </span>              &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/RelatedPlaceRefOrValue</span>&quot;
+<span id="W2L34154" class="LineNr">34154 </span>            <span class="Special">}</span>,
+<span id="W2L34155" class="LineNr">34155 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">array</span>&quot;
+<span id="W2L34156" class="LineNr">34156 </span>          },
+<span id="W2L34157" class="LineNr">34157 </span>          &quot;<span class="Statement">productConfiguration</span>&quot;: <span class="Special">{</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34158" class="LineNr">34158 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/MEFProductConfiguration</span>&quot;
+<span id="W2L34159" class="LineNr">34159 </span>          <span class="Special">}</span>,
+<span id="W2L34160" class="LineNr">34160 </span>          &quot;<span class="Statement">productOffering</span>&quot;: <span class="Special">{</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34161" class="LineNr">34161 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/ProductOfferingRef</span>&quot;
+<span id="W2L34162" class="LineNr">34162 </span>          <span class="Special">}</span>,
+<span id="W2L34163" class="LineNr">34163 </span>          &quot;<span class="Statement">productRelationship</span>&quot;: <span class="Special">{</span>
+<span id="W2L34164" class="LineNr">34164 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">A list of references to existing products that are related to the Product that would be delivered to fulfill the Quote Item</span>&quot;,
+<span id="W2L34165" class="LineNr">34165 </span>            &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W2L34166" class="LineNr">34166 </span>              &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/ProductRelationshipWithGrouping</span>&quot;
+<span id="W2L34167" class="Folded">34167 </span><span class="Folded">+-- 22 lines: },----------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34189" class="LineNr">34189 </span>        &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">object</span>&quot;
+<span id="W2L34190" class="LineNr">34190 </span>      },
+<span id="W2L34191" class="LineNr">34191 </span>      &quot;<span class="Statement">MEFQuoteItem_Common</span>&quot;: <span class="Special">{</span>
+<span id="W2L34192" class="LineNr">34192 </span>        &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Quote items describe an action to be performed on a productOffering or a product in order to get pricing elements and conditions.</span>&quot;,
+<span id="W2L34193" class="LineNr">34193 </span>        &quot;<span class="Statement">properties</span>&quot;: <span class="Special">{</span>
+<span id="W2L34194" class="LineNr">34194 </span>          &quot;<span class="Statement">requestedQuoteItemTerm</span>&quot;: <span class="Special">{</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34195" class="LineNr">34195 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/MEFItemTerm</span>&quot;
+<span id="W2L34196" class="LineNr">34196 </span>          <span class="Special">}</span>,
+<span id="W2L34197" class="LineNr">34197 </span>          &quot;<span class="Statement">note</span>&quot;: <span class="Special">{</span>
+<span id="W2L34198" class="LineNr">34198 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Free form text associated with the quote item. Only useful in processes involving human interaction. Not applicable for the automated process.</span>&quot;,
+<span id="W2L34199" class="LineNr">34199 </span>            &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W2L34200" class="LineNr">34200 </span>              &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/Note</span>&quot;
+<span id="W2L34201" class="LineNr">34201 </span>            <span class="Special">}</span>,
+<span id="W2L34202" class="LineNr">34202 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">array</span>&quot;
+<span id="W2L34203" class="LineNr">34203 </span>          <span class="Special">}</span>,
+<span id="W2L34204" class="LineNr">34204 </span>          &quot;<span class="Statement">product</span>&quot;: <span class="Special">{</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34205" class="LineNr">34205 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/MEFProductRefOrValueQuote</span>&quot;
+<span id="W2L34206" class="LineNr">34206 </span>          <span class="Special">}</span>,
+<span id="W2L34207" class="LineNr">34207 </span>          &quot;<span class="Statement">productOfferingQualificationItem</span>&quot;: <span class="Special">{</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34208" class="LineNr">34208 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/ProductOfferingQualificationItemRef</span>&quot;
+<span id="W2L34209" class="LineNr">34209 </span>          <span class="Special">}</span>,
+<span id="W2L34210" class="LineNr">34210 </span>          &quot;<span class="Statement">relatedContactInformation</span>&quot;: <span class="Special">{</span>
+<span id="W2L34211" class="LineNr">34211 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Contact information of an individual or organization playing a role for this Quote. If `instantSyncQuote` equals `false`  then 'Quote Item Technical Contact' must be specified (`role: quoteItemTechnicalContact`). If `instantSyncQuote` equals `false` and the Quote Item requires a location,  the Buyer MUST provide the Quote Item Location Contact Information `role: quoteItemLocationContact`.</span><span class="Special">\n</span>&quot;,
+<span id="W2L34212" class="LineNr">34212 </span>            &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W2L34213" class="LineNr">34213 </span>              &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/RelatedContactInformation</span>&quot;
+<span id="W2L34214" class="Folded">34214 </span><span class="Folded">+--  3 lines: },----------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34217" class="LineNr">34217 </span>          &quot;<span class="Statement">agreementName</span>&quot;: <span class="Special">{</span>
+<span id="W2L34218" class="LineNr">34218 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Name of the agreement. The name is unique between the Buyer and the Seller.</span>&quot;,
+<span id="W2L34219" class="LineNr">34219 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W2L34220" class="LineNr">34220 </span>          <span class="Special">}</span>,
+<span id="W2L34221" class="LineNr">34221 </span>          &quot;<span class="Statement">action</span>&quot;: <span class="Special">{</span>
+<span id="W2L34222" class="LineNr">34222 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Product action to be applied to this Quote Item. This corresponds to the Order Item Action when an associated product is ordered.</span>&quot;,
+<span id="W2L34223" class="LineNr">34223 </span><span class="DiffChange">            </span><span class="DiffChange">&quot;</span><span class="Statement DiffText">items</span><span class="DiffText">&quot;</span><span class="DiffText">:</span><span class="DiffText"> </span><span class="Special DiffText">{</span><span class="DiffChange">                                                                                                                                                          </span>
+<span id="W2L34224" class="LineNr">34224 </span><span class="DiffAdd">              </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">$ref</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">#/components/schemas/MEFProductActionType</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">                                                                                                               </span>
+<span id="W2L34225" class="LineNr">34225 </span><span class="DiffAdd">            </span><span class="Special DiffAdd">}</span><span class="DiffAdd">                                                                                                                                                                   </span>
+<span id="W2L34226" class="LineNr">34226 </span>          <span class="Special">}</span>,
+<span id="W2L34227" class="LineNr">34227 </span>          &quot;<span class="Statement">dealReference</span>&quot;: <span class="Special">{</span>
+<span id="W2L34228" class="LineNr">34228 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">A pre-agreed pricing modifier reference that the Seller is offering to the Buyer which will impact the price.</span>&quot;,
+<span id="W2L34229" class="LineNr">34229 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W2L34230" class="LineNr">34230 </span>          <span class="Special">}</span>,
+<span id="W2L34231" class="LineNr">34231 </span>          &quot;<span class="Statement">id</span>&quot;: <span class="Special">{</span>
+<span id="W2L34232" class="LineNr">34232 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Identifier of the quote item (generally it is a sequence number 01, 02, 03, ...)</span>&quot;,
+<span id="W2L34233" class="LineNr">34233 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W2L34234" class="LineNr">34234 </span>          <span class="Special">}</span>,
+<span id="W2L34235" class="LineNr">34235 </span>          &quot;<span class="Statement">requestedQuoteItemInstallationInterval</span>&quot;: <span class="Special">{</span>
+<span id="W2L34236" class="LineNr">34236 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">The installation interval requested by the Buyer.</span>&quot;,
+<span id="W2L34237" class="LineNr">34237 </span><span class="DiffChange">            </span><span class="DiffChange">&quot;</span><span class="Statement DiffText">items</span><span class="DiffText">&quot;</span><span class="DiffText">:</span><span class="DiffText"> </span><span class="Special DiffText">{</span><span class="DiffChange">                                                                                                                                                          </span>
+<span id="W2L34238" class="LineNr">34238 </span><span class="DiffAdd">              </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">$ref</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">#/components/schemas/Duration-2</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">                                                                                                                         </span>
+<span id="W2L34239" class="LineNr">34239 </span><span class="DiffAdd">            </span><span class="Special DiffAdd">}</span><span class="DiffAdd">                                                                                                                                                                   </span>
+<span id="W2L34240" class="LineNr">34240 </span>          <span class="Special">}</span>,
+<span id="W2L34241" class="LineNr">34241 </span>          &quot;<span class="Statement">quoteItemRelationship</span>&quot;: <span class="Special">{</span>
+<span id="W2L34242" class="LineNr">34242 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">A relationship from item within a quote</span>&quot;,
+<span id="W2L34243" class="LineNr">34243 </span>            &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W2L34244" class="LineNr">34244 </span>              &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/QuoteItemRelationship</span>&quot;
+<span id="W2L34245" class="LineNr">34245 </span>            <span class="Special">}</span>,
+<span id="W2L34246" class="Folded">34246 </span><span class="Folded">+--143 lines: &quot;type&quot;: &quot;array&quot;---------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34389" class="LineNr">34389 </span>        &quot;<span class="Statement">properties</span>&quot;: <span class="Special">{</span>
+<span id="W2L34390" class="LineNr">34390 </span>          &quot;<span class="Statement">unitOfMeasure</span>&quot;: <span class="Special">{</span>
+<span id="W2L34391" class="LineNr">34391 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Unit of Measure if price depending on it (Gb, SMS volume, etc..) MEF: if Quote Item Price Type equals usageBased</span>&quot;,
+<span id="W2L34392" class="LineNr">34392 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W2L34393" class="LineNr">34393 </span>          <span class="Special">}</span>,
+<span id="W2L34394" class="LineNr">34394 </span>          &quot;<span class="Statement">price</span>&quot;: <span class="Special">{</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34395" class="LineNr">34395 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/Price</span>&quot;
+<span id="W2L34396" class="LineNr">34396 </span>          <span class="Special">}</span>,
+<span id="W2L34397" class="LineNr">34397 </span>          &quot;<span class="Statement">name</span>&quot;: <span class="Special">{</span>
+<span id="W2L34398" class="LineNr">34398 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Name of the quote/quote item price</span>&quot;,
+<span id="W2L34399" class="LineNr">34399 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W2L34400" class="LineNr">34400 </span>          <span class="Special">}</span>,
+<span id="W2L34401" class="LineNr">34401 </span>          &quot;<span class="Statement">priceType</span>&quot;: <span class="Special">{</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34402" class="LineNr">34402 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/MEFPriceType</span>&quot;
+<span id="W2L34403" class="LineNr">34403 </span>          <span class="Special">}</span>,
+<span id="W2L34404" class="LineNr">34404 </span>          &quot;<span class="Statement">description</span>&quot;: <span class="Special">{</span>
+<span id="W2L34405" class="LineNr">34405 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Description of the quote/quote item price</span>&quot;,
+<span id="W2L34406" class="LineNr">34406 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W2L34407" class="LineNr">34407 </span>          <span class="Special">}</span>,
+<span id="W2L34408" class="LineNr">34408 </span>          &quot;<span class="Statement">recurringChargePeriod</span>&quot;: <span class="Special">{</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34409" class="LineNr">34409 </span>            &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/MEFChargePeriod</span>&quot;
+<span id="W2L34410" class="LineNr">34410 </span>          <span class="Special">}</span>
+<span id="W2L34411" class="LineNr">34411 </span>        <span class="Special">}</span>,
+<span id="W2L34412" class="LineNr">34412 </span>        &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">object</span>&quot;
+<span id="W2L34413" class="LineNr">34413 </span>      },
+<span id="W2L34414" class="LineNr">34414 </span>      &quot;<span class="Statement">QuoteItem</span>&quot;: <span class="Special">{</span>
+<span id="W2L34415" class="Folded">34415 </span><span class="Folded">+--  9 lines: &quot;allOf&quot;: [--------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34424" class="LineNr">34424 </span>                &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W2L34425" class="LineNr">34425 </span>                  &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/TerminationError</span>&quot;
+<span id="W2L34426" class="LineNr">34426 </span>                <span class="Special">}</span>,
+<span id="W2L34427" class="LineNr">34427 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">array</span>&quot;
+<span id="W2L34428" class="LineNr">34428 </span>              },
+<span id="W2L34429" class="LineNr">34429 </span>              &quot;<span class="Statement">quoteItemInstallationInterval</span>&quot;: <span class="Special">{</span>
+<span class="LineNr">      </span><span class="DiffDelete">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34430" class="LineNr">34430 </span>                &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/Duration-2</span>&quot;
+<span id="W2L34431" class="LineNr">34431 </span>              <span class="Special">}</span>,
+<span id="W2L34432" class="LineNr">34432 </span>              &quot;<span class="Statement">subjectToFeasibilityCheck</span>&quot;: <span class="Special">{</span>
+<span id="W2L34433" class="LineNr">34433 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">For a Firm Quote Level indicates if the pricing requires a Feasibility Check. The Seller indicates if the Quote Item requires a Feasibility Check. This is not used for a Budgetary Quote Level.</span>&quot;,
+<span id="W2L34434" class="LineNr">34434 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">boolean</span>&quot;
+<span id="W2L34435" class="LineNr">34435 </span>              <span class="Special">}</span>,
+<span id="W2L34436" class="Folded">34436 </span><span class="Folded">+--  4 lines: &quot;quoteItemTerm&quot;: {------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34440" class="LineNr">34440 </span>                },
+<span id="W2L34441" class="LineNr">34441 </span>                &quot;<span class="Statement">maxItems</span>&quot;: <span class="Constant">1</span>,
+<span id="W2L34442" class="LineNr">34442 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">array</span>&quot;
+<span id="W2L34443" class="LineNr">34443 </span>              },
+<span id="W2L34444" class="LineNr">34444 </span>              &quot;<span class="Statement">state</span>&quot;: <span class="Special">{</span>
+<span id="W2L34445" class="LineNr">34445 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">The state of the Quote Item.</span>&quot;,
+<span id="W2L34446" class="LineNr">34446 </span><span class="DiffChange">                </span><span class="DiffChange">&quot;</span><span class="Statement DiffText">items</span><span class="DiffText">&quot;</span><span class="DiffText">:</span><span class="DiffText"> </span><span class="Special DiffText">{</span><span class="DiffChange">                                                                                                                                                      </span>
+<span id="W2L34447" class="LineNr">34447 </span><span class="DiffAdd">                  </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">$ref</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">#/components/schemas/MEFQuoteItemStateType</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">                                                                                                          </span>
+<span id="W2L34448" class="LineNr">34448 </span><span class="DiffAdd">                </span><span class="Special DiffAdd">}</span><span class="DiffAdd">                                                                                                                                                               </span>
+<span id="W2L34449" class="LineNr">34449 </span>              <span class="Special">}</span>,
+<span id="W2L34450" class="LineNr">34450 </span>              &quot;<span class="Statement">quoteItemPrice</span>&quot;: <span class="Special">{</span>
+<span id="W2L34451" class="LineNr">34451 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Price for this quote item</span>&quot;,
+<span id="W2L34452" class="LineNr">34452 </span>                &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W2L34453" class="LineNr">34453 </span>                  &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/QuotePrice</span>&quot;
+<span id="W2L34454" class="LineNr">34454 </span>                <span class="Special">}</span>,
+<span id="W2L34455" class="Folded">34455 </span><span class="Folded">+-- 36 lines: &quot;type&quot;: &quot;array&quot;---------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34491" class="LineNr">34491 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">The date on when the state was reached</span>&quot;,
+<span id="W2L34492" class="LineNr">34492 </span>            &quot;<span class="Statement">format</span>&quot;: &quot;<span class="Constant">date-time</span>&quot;,
+<span id="W2L34493" class="LineNr">34493 </span>            &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W2L34494" class="LineNr">34494 </span>          },
+<span id="W2L34495" class="LineNr">34495 </span>          &quot;<span class="Statement">state</span>&quot;: <span class="Special">{</span>
+<span id="W2L34496" class="LineNr">34496 </span>            &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">A state reached at the change date</span>&quot;,
+<span id="W2L34497" class="LineNr">34497 </span><span class="DiffChange">            </span><span class="DiffChange">&quot;</span><span class="Statement DiffText">items</span><span class="DiffText">&quot;</span><span class="DiffText">:</span><span class="DiffText"> </span><span class="Special DiffText">{</span><span class="DiffChange">                                                                                                                                                          </span>
+<span id="W2L34498" class="LineNr">34498 </span><span class="DiffAdd">              </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">$ref</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">#/components/schemas/MEFQuoteStateType</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">                                                                                                                  </span>
+<span id="W2L34499" class="LineNr">34499 </span><span class="DiffAdd">            </span><span class="Special DiffAdd">}</span><span class="DiffAdd">                                                                                                                                                                   </span>
+<span id="W2L34500" class="LineNr">34500 </span>          <span class="Special">}</span>
+<span id="W2L34501" class="LineNr">34501 </span>        },
+<span id="W2L34502" class="LineNr">34502 </span>        &quot;<span class="Statement">required</span>&quot;: <span class="Special">[</span>
+<span id="W2L34503" class="LineNr">34503 </span>          &quot;<span class="Constant">changeDate</span>&quot;,
+<span id="W2L34504" class="LineNr">34504 </span>          &quot;<span class="Constant">state</span>&quot;
+<span id="W2L34505" class="LineNr">34505 </span>        <span class="Special">]</span>,
+<span id="W2L34506" class="Folded">34506 </span><span class="Folded">+-- 16 lines: &quot;type&quot;: &quot;object&quot;--------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34522" class="LineNr">34522 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">This is the date provided by the Seller to indicate the date by which the Quote is expected to reach a Quote Completion State</span>&quot;,
+<span id="W2L34523" class="LineNr">34523 </span>                &quot;<span class="Statement">format</span>&quot;: &quot;<span class="Constant">date-time</span>&quot;,
+<span id="W2L34524" class="LineNr">34524 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W2L34525" class="LineNr">34525 </span>              },
+<span id="W2L34526" class="LineNr">34526 </span>              &quot;<span class="Statement">validFor</span>&quot;: <span class="Special">{</span>
+<span id="W2L34527" class="LineNr">34527 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Quote validity period. For use in the context of this attribute, only the endDateTime attribute must be used.</span>&quot;,
+<span id="W2L34528" class="LineNr">34528 </span><span class="DiffChange">                </span><span class="DiffChange">&quot;</span><span class="Statement DiffText">items</span><span class="DiffText">&quot;</span><span class="DiffText">:</span><span class="DiffText"> </span><span class="Special DiffText">{</span><span class="DiffChange">                                                                                                                                                      </span>
+<span id="W2L34529" class="LineNr">34529 </span><span class="DiffAdd">                  </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">$ref</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">#/components/schemas/TimePeriod</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">                                                                                                                     </span>
+<span id="W2L34530" class="LineNr">34530 </span><span class="DiffAdd">                </span><span class="Special DiffAdd">}</span><span class="DiffAdd">                                                                                                                                                               </span>
+<span id="W2L34531" class="LineNr">34531 </span>              <span class="Special">}</span>,
+<span id="W2L34532" class="LineNr">34532 </span>              &quot;<span class="Statement">quoteLevel</span>&quot;: <span class="Special">{</span>
+<span id="W2L34533" class="LineNr">34533 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">An indication of whether the Seller's Quote Response is Budgetary, Firm - Subject to Feasibility Check, or Firm. The Seller Quote Level is provided by the Seller when responding to a Quote request.  This represents the lowest Quote Item Level of all Quote Items included in the Quote.</span>&quot;,
+<span id="W2L34534" class="LineNr">34534 </span><span class="DiffChange">                </span><span class="DiffChange">&quot;</span><span class="Statement DiffText">items</span><span class="DiffText">&quot;</span><span class="DiffText">:</span><span class="DiffText"> </span><span class="Special DiffText">{</span><span class="DiffChange">                                                                                                                                                      </span>
+<span id="W2L34535" class="LineNr">34535 </span><span class="DiffAdd">                  </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">$ref</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">#/components/schemas/MEFSellerQuoteLevel</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">                                                                                                            </span>
+<span id="W2L34536" class="LineNr">34536 </span><span class="DiffAdd">                </span><span class="Special DiffAdd">}</span><span class="DiffAdd">                                                                                                                                                               </span>
+<span id="W2L34537" class="LineNr">34537 </span>              <span class="Special">}</span>,
+<span id="W2L34538" class="LineNr">34538 </span>              &quot;<span class="Statement">quoteItem</span>&quot;: <span class="Special">{</span>
+<span id="W2L34539" class="LineNr">34539 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">An item of the quote - it is used to describe an operation on a product to be quoted</span>&quot;,
+<span id="W2L34540" class="LineNr">34540 </span>                &quot;<span class="Statement">items</span>&quot;: <span class="Special">{</span>
+<span id="W2L34541" class="LineNr">34541 </span>                  &quot;<span class="Statement">$ref</span>&quot;: &quot;<span class="Constant">#/components/schemas/QuoteItem</span>&quot;
+<span id="W2L34542" class="LineNr">34542 </span>                <span class="Special">}</span>,
+<span id="W2L34543" class="Folded">34543 </span><span class="Folded">+-- 14 lines: &quot;minItems&quot;: 1,----------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L34557" class="LineNr">34557 </span>              &quot;<span class="Statement">href</span>&quot;: <span class="Special">{</span>
+<span id="W2L34558" class="LineNr">34558 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Hyperlink representing this Quote. Hyperlink MAY be used when providing a response by the Seller</span><span class="Special">\n</span>&quot;,
+<span id="W2L34559" class="LineNr">34559 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W2L34560" class="LineNr">34560 </span>              <span class="Special">}</span>,
+<span id="W2L34561" class="LineNr">34561 </span>              &quot;<span class="Statement">state</span>&quot;: <span class="Special">{</span>
+<span id="W2L34562" class="LineNr">34562 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">The state of the Quote.</span>&quot;,
+<span id="W2L34563" class="LineNr">34563 </span><span class="DiffChange">                </span><span class="DiffChange">&quot;</span><span class="Statement DiffText">items</span><span class="DiffText">&quot;</span><span class="DiffText">:</span><span class="DiffText"> </span><span class="Special DiffText">{</span><span class="DiffChange">                                                                                                                                                      </span>
+<span id="W2L34564" class="LineNr">34564 </span><span class="DiffAdd">                  </span><span class="DiffAdd">&quot;</span><span class="Statement DiffAdd">$ref</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">:</span><span class="DiffAdd"> </span><span class="DiffAdd">&quot;</span><span class="Constant DiffAdd">#/components/schemas/MEFQuoteStateType</span><span class="DiffAdd">&quot;</span><span class="DiffAdd">                                                                                                              </span>
+<span id="W2L34565" class="LineNr">34565 </span><span class="DiffAdd">                </span><span class="Special DiffAdd">}</span><span class="DiffAdd">                                                                                                                                                               </span>
+<span id="W2L34566" class="LineNr">34566 </span>              <span class="Special">}</span>,
+<span id="W2L34567" class="LineNr">34567 </span>              &quot;<span class="Statement">quoteDate</span>&quot;: <span class="Special">{</span>
+<span id="W2L34568" class="LineNr">34568 </span>                &quot;<span class="Statement">description</span>&quot;: &quot;<span class="Constant">Date and time when the quote was created</span>&quot;,
+<span id="W2L34569" class="LineNr">34569 </span>                &quot;<span class="Statement">format</span>&quot;: &quot;<span class="Constant">date-time</span>&quot;,
+<span id="W2L34570" class="LineNr">34570 </span>                &quot;<span class="Statement">type</span>&quot;: &quot;<span class="Constant">string</span>&quot;
+<span id="W2L34571" class="LineNr">34571 </span>              <span class="Special">}</span>
+<span id="W2L34572" class="Folded">34572 </span><span class="Folded">+--202 lines: },----------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+</pre>
+</div></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->
+

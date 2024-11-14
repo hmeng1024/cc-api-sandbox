@@ -29,6 +29,7 @@ export const createApp = async (
 
   app.use(express.json());
   app.set("json spaces", 4); // Mimic real api with correct formatting
+
   if (log) {
     app.use(
       pinoHttp({
@@ -39,14 +40,25 @@ export const createApp = async (
 
   app.use("/", express.static("static"));
 
+  // Debug: log every incoming request
+  app.use((req, res, next) => {
+    console.log(`[DEBUG] Incoming request: ${req.method} ${req.path}`);
+    next();
+  });
+
+  // Initialize OpenAPI-Backend
   const api = new OpenAPIBackend({
     definition: process.env["SPEC_FILE"] ?? "./specs/moddedccapi_20240906.json",
     strict: false,
     handlers: {
-      validationFail: async (c, req: ExpressReq, res: ExpressRes) =>
-        res.status(400).json({ err: c.validation.errors }),
-      notFound: async (c, req: ExpressReq, res: ExpressRes) =>
-        res.status(404).json({ err: "not found" }),
+      validationFail: async (c, req: ExpressReq, res: ExpressRes) => {
+        console.log(`[DEBUG] Validation failed for: ${req.path}`);
+        return res.status(400).json({ err: c.validation.errors });
+      },
+      notFound: async (c, req: ExpressReq, res: ExpressRes) => {
+        console.log(`[DEBUG] Not found called for: ${req.path}`);
+        return res.status(404).json({ err: "not found" });
+      },
       notImplemented: async (c, req: ExpressReq, res: ExpressRes) => {
         const { status, mock } = c.operation.operationId
           ? (c.api.mockResponseForOperation(c.operation.operationId) as {
@@ -54,6 +66,7 @@ export const createApp = async (
               mock: object;
             })
           : { status: 500, mock: {} };
+        console.log(`[DEBUG] Not implemented called for: ${req.path}`);
         return res.status(status).json(mock);
       },
     },
@@ -69,6 +82,13 @@ export const createApp = async (
   });
 
   await api.init();
+
+  // Debug - After the API is initialized, log all operations
+  console.log("[DEBUG] Loaded operations:");
+  api.getOperations().forEach((operation) => {
+    console.log(`Path: ${operation.path}, Method: ${operation.method}`);
+  });
+
   app.use((req, res, next) => {
     void api
       .handleRequest(req as Request, req, res)
