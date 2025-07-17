@@ -49,7 +49,7 @@ export const createApp = async (
 
   // Initialize OpenAPI-Backend
   const api = new OpenAPIBackend({
-    definition: process.env["SPEC_FILE"] ?? "./specs/ccapi_20250716.json",
+    definition: process.env["SPEC_FILE"] ?? "./specs/moddedccapi_20240906.json",
     strict: false,
     customizeAjv: (ajv) => {
       addFormats(ajv, {
