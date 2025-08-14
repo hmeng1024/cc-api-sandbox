@@ -15,9 +15,11 @@
  */
 
 import OpenAPIBackend, { Request } from "openapi-backend";
-import express from "express";
+import express, {
+  Request as ExpressReq,
+  Response as ExpressRes,
+} from "express";
 import pinoHttp from "pino-http";
-import { Request as ExpressReq, Response as ExpressRes } from "express";
 import { setStartTime, heartbeat } from "./handlers/heartbeat";
 import pino from "pino";
 import addFormats from "ajv-formats";
@@ -43,7 +45,6 @@ export const createApp = async (
 
   // Debug: log every incoming request
   app.use((req, res, next) => {
-    console.log(`[DEBUG] Incoming request: ${req.method} ${req.path}`);
     next();
   });
 
@@ -90,11 +91,9 @@ export const createApp = async (
     },
     handlers: {
       validationFail: async (c, req: ExpressReq, res: ExpressRes) => {
-        console.log(`[DEBUG] Validation failed for: ${req.path}`);
         return res.status(400).json({ err: c.validation.errors });
       },
       notFound: async (c, req: ExpressReq, res: ExpressRes) => {
-        console.log(`[DEBUG] Not found called for: ${req.path}`);
         return res.status(404).json({ err: "not found" });
       },
       notImplemented: async (c, req: ExpressReq, res: ExpressRes) => {
@@ -104,7 +103,6 @@ export const createApp = async (
               mock: object;
             })
           : { status: 500, mock: {} };
-        console.log(`[DEBUG] Not implemented called for: ${req.path}`);
         return res.status(status).json(mock);
       },
     },
@@ -120,12 +118,6 @@ export const createApp = async (
   });
 
   await api.init();
-
-  // Debug - After the API is initialized, log all operations
-  console.log("[DEBUG] Loaded operations:");
-  api.getOperations().forEach((operation) => {
-    console.log(`Path: ${operation.path}, Method: ${operation.method}`);
-  });
 
   app.use((req, res, next) => {
     void api
