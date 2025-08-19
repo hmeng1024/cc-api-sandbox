@@ -43,11 +43,6 @@ export const createApp = async (
 
   app.use("/", express.static("static"));
 
-  // Debug: log every incoming request
-  app.use((req, res, next) => {
-    next();
-  });
-
   // Initialize OpenAPI-Backend
   const api = new OpenAPIBackend({
     definition: process.env["SPEC_FILE"] ?? "./specs/moddedccapi_20240906.json",
